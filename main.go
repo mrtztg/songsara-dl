@@ -35,6 +35,8 @@ Examples:
   songsara-dl -o /path/to/music -v "https://songsara.net/59021/"`,
 	Example: `  songsara-dl "https://songsara.net/59021/"
   songsara-dl -c 8 -o /music -v "https://songsara.net/59021/" "https://songsara.net/12345/"`,
+	Args: cobra.MinimumNArgs(1),
+	DisableFlagParsing: false,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if len(args) == 0 {
 			return fmt.Errorf("please provide at least one SongSara URL")
