@@ -1,0 +1,102 @@
+# SongSara Downloader - Cursor Configuration
+
+## Project Overview
+
+This is a web scraper and downloader for SongSara music platform. The project allows users to download entire albums or playlists from SongSara by scraping song information and downloading them automatically, bypassing the need for a VIP account or manual individual downloads.
+
+## Project Structure
+
+- Main scraper script that orchestrates the scraping and downloading process
+- Download management classes for handling music files and download packs
+- `download_list.txt` - Generated file containing scraped song information (temporary, deleted after download completion)
+- `download/` - Output directory where downloaded songs are stored
+- Dependencies file for required packages
+
+## Core Functionality
+
+### 1. Web Scraping Process
+The scraper uses HTML parsing to extract from SongSara pages:
+- Album/playlist folder names
+- User proper header to prevent getting blocked by website
+- Individual song titles
+- Direct download URLs for each song
+
+### 2. Download Management
+- Creates organized folder structure for each album/playlist
+- Handles duplicate downloads (skips existing files)
+- Normalizes filenames to be filesystem-compatible
+- Downloads songs with proper file extensions
+- Download process of each file will display in CLI
+
+## Crawler Selectors Documentation
+
+### Primary Selectors Used in the Scraper
+
+#### 1. Album/Playlist Title Selector
+```css
+.AL-Si
+```
+- **Purpose**: Extracts the album or playlist name from the page
+- **CSS Selector**: `.AL-Si`
+- **Target Element**: HTML element with class `AL-Si` containing the title text
+- **Usage**: Used to create folder names for organizing downloaded songs
+
+#### 2. Track List Container Selector
+```css
+#aramplayer .audioplayer-audios li
+```
+- **Purpose**: Finds all individual track elements in the audio player
+- **CSS Selector**: `#aramplayer .audioplayer-audios li`
+- **Target Elements**: List items (`<li>`) within the audio player container
+- **Structure**: 
+  - `#aramplayer` - Main audio player container
+  - `.audioplayer-audios` - Audio tracks container
+  - `li` - Individual track list items
+
+#### 3. Song Title Extraction
+```html
+data-title
+```
+- **Purpose**: Extracts the song title from each track element
+- **Attribute**: `data-title`
+- **Target**: HTML attribute on track row elements containing the song name
+- **Usage**: Used as filename for downloaded songs
+
+#### 4. Download URL Selector
+```css
+div.audioplayer-source
+```
+- **Purpose**: Extracts the direct download URL for each song
+- **CSS Selector**: `div.audioplayer-source`
+- **Attribute**: `data-src`
+- **Target Element**: `<div>` with class `audioplayer-source` containing the download URL
+- **Usage**: Direct link to the audio file for downloading
+
+### Selector Hierarchy
+
+```
+SongSara Page Structure:
+├── .AL-Si (Album/Playlist Title)
+└── #aramplayer (Audio Player Container)
+    └── .audioplayer-audios (Tracks Container)
+        └── li (Individual Track Elements)
+            ├── data-title (Song Name)
+            └── div.audioplayer-source
+                └── data-src (Download URL)
+```
+
+## Key Implementation Details
+
+### File Processing Flow
+1. **Input**: URLs from user prompt input
+2. **Scraping**: Extract song data using the selectors above
+3. **Output**: Generate `download_list.txt` with structured data
+4. **Download**: Process each song and save to organized folders
+5. **Cleanup**: Delete `download_list.txt` after all downloads are completed
+
+
+### Filename Normalization
+The project includes filename sanitization to handle special characters:
+- **Regex Pattern**: `[/*?:"<>|]`
+- **Purpose**: Removes filesystem-incompatible characters
+- **Implementation**: Remove any characters that are invalid for file system names
