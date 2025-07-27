@@ -18,15 +18,15 @@ A fast CLI tool to download entire albums and playlists from SongSara with concu
 Download the latest release for your platform:
 
 **macOS:**
-- Intel: [songsara-dl_Darwin_x86_64](https://github.com/mrtztg/songsara-dl/releases/download/v0.1.5/songsara-dl_Darwin_x86_64)
-- Apple Silicon: [songsara-dl_Darwin_arm64](https://github.com/mrtztg/songsara-dl/releases/download/v0.1.5/songsara-dl_Darwin_arm64)
+- Intel: [songsara-dl_Darwin_x86_64](https://github.com/mrtztg/songsara-dl/releases/download/latest/songsara-dl_Darwin_x86_64)
+- Apple Silicon: [songsara-dl_Darwin_arm64](https://github.com/mrtztg/songsara-dl/releases/download/latest/songsara-dl_Darwin_arm64)
 
 **Linux:**
-- x86_64: [songsara-dl_Linux_x86_64](https://github.com/mrtztg/songsara-dl/releases/download/v0.1.5/songsara-dl_Linux_x86_64)
-- ARM64: [songsara-dl_Linux_arm64](https://github.com/mrtztg/songsara-dl/releases/download/v0.1.5/songsara-dl_Linux_arm64)
+- x86_64: [songsara-dl_Linux_x86_64](https://github.com/mrtztg/songsara-dl/releases/download/latest/songsara-dl_Linux_x86_64)
+- ARM64: [songsara-dl_Linux_arm64](https://github.com/mrtztg/songsara-dl/releases/download/latest/songsara-dl_Linux_arm64)
 
 **Windows:**
-- x86_64: [songsara-dl_Windows_x86_64](https://github.com/mrtztg/songsara-dl/releases/download/v0.1.5/songsara-dl_Windows_x86_64.exe)
+- x86_64: [songsara-dl_Windows_x86_64](https://github.com/mrtztg/songsara-dl/releases/download/latest/songsara-dl_Windows_x86_64.exe)
 
 ### Build from Source
 
