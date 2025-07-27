@@ -19,29 +19,24 @@ builds:
       - goos: windows
         goarch: arm64
 
-
-# Minimal archives with just the binary
 archives:
-  - format: tar.gz
+  - format: binary
     name_template: >-
       {{ .ProjectName }}_
       {{- title .Os }}_
-      {{- if eq .Arch "amd64" }}amd64
+      {{- if eq .Arch "amd64" }}x86_64
       {{- else }}{{ .Arch }}{{ end }}
     format_overrides:
       - goos: windows
         format: zip
     files:
-      - "{{ .Binary }}"
-    allow_different_binary_count: true
+      - README.md
+      - LICENSE*
+      - CHANGELOG*
+      - example.sh
 
 checksum:
   name_template: 'checksums.txt'
-
-# Disable all packaging
-nfpms: []
-brews: []
-dockers: []
 
 snapshot:
   name_template: "{{ incpatch .Version }}-next"
