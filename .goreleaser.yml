@@ -49,4 +49,9 @@ changelog:
       - '^test:'
       - '^ci:'
       - Merge pull request
-      - Merge branch 
+      - Merge branch
+
+release:
+  github:
+    owner: yourusername
+    name: songsara-dl 

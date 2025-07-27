@@ -52,6 +52,8 @@ make snapshot
 make release
 ```
 
+📖 **For GitHub Releases**: See [RELEASE_GUIDE.md](RELEASE_GUIDE.md) for step-by-step instructions.
+
 ## Usage
 
 ```bash
