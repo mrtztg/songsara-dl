@@ -1,1 +1,1 @@
-{"project_name":"songsara-dl","tag":"v0.1","previous_tag":"","version":"0.1.1-next","commit":"05d0785b2ff238f9bc2311c88219967d4bb90fd7","date":"2025-07-27T12:46:21.249027+01:00","runtime":{"goos":"darwin","goarch":"amd64"}}
+{"project_name":"songsara-dl","tag":"v0.1.1","previous_tag":"v0.1","version":"0.1.2-next","commit":"f5c18163ba5f411582119631df3d7853f5d5518c","date":"2025-07-27T12:56:18.387244+01:00","runtime":{"goos":"darwin","goarch":"amd64"}}

@@ -40,15 +40,13 @@ builds:
       - CGO_ENABLED=0
 archives:
   - id: default
-    name_template: '{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}{{ with .Arm }}v{{ . }}{{ end }}{{ with .Mips }}_{{ . }}{{ end }}{{ if not (eq .Amd64 "v1") }}{{ .Amd64 }}{{ end }}'
+    name_template: '{{ .ProjectName }}_ {{- title .Os }}_ {{- if eq .Arch "amd64" }}amd64 {{- else }}{{ .Arch }}{{ end }}'
     format: tar.gz
+    format_overrides:
+      - goos: windows
+        format: zip
     files:
-      - src: license*
-      - src: LICENSE*
-      - src: readme*
-      - src: README*
-      - src: changelog*
-      - src: CHANGELOG*
+      - src: '{{ .Binary }}'
 snapshot:
   name_template: '{{ incpatch .Version }}-next'
 checksum:

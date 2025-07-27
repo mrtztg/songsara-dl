@@ -19,11 +19,28 @@ builds:
       - goos: windows
         goarch: arm64
 
-# Don't create archives, just upload the binaries directly
-archives: []
+
+# Minimal archives with just the binary
+archives:
+  - format: tar.gz
+    name_template: >-
+      {{ .ProjectName }}_
+      {{- title .Os }}_
+      {{- if eq .Arch "amd64" }}amd64
+      {{- else }}{{ .Arch }}{{ end }}
+    format_overrides:
+      - goos: windows
+        format: zip
+    files:
+      - "{{ .Binary }}"
 
 checksum:
   name_template: 'checksums.txt'
+
+# Disable all packaging
+nfpms: []
+brews: []
+dockers: []
 
 snapshot:
   name_template: "{{ incpatch .Version }}-next"
